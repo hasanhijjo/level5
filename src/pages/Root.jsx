@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import Appbar from "../component/Appbar";
 import Drawerr from "../component/Drawerr";
 import { Outlet } from "react-router";
@@ -7,7 +8,9 @@ export default function Root() {
     <div>
       <Appbar drawerWidth={drawerWidth} />
       <Drawerr drawerWidth={drawerWidth} />
+      <Box className="border" sx={{ ml: `${drawerWidth}px`, display: "flex",justifyContent:"center" ,mt:"50px"}}>
       <Outlet />
+      </Box>
     </div>
   );
 }

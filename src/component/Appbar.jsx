@@ -1,23 +1,32 @@
-import { Avatar, Link, IconButton, Toolbar, Button, AppBar } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-export default function Appbar() {
+import Button from "@mui/material/Button";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Link from "@mui/material/Link";
+import Avatar from "@mui/material/Avatar";
+export default function Appbar({ drawerWidth }) {
   return (
-    <div>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Link sx={{ flexGrow: 1 }} underline="none" color="inherit">
-            Expenses{" "}
-          </Link>
-          <Button color="inherit">Login</Button>
-          <Avatar
-            alt="Remy Sharp"
-            src="https://mui.com/static/images/avatar/2.jpg"
-          />
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar
+      position="static"
+      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}>
+      <Toolbar>
+        <Link
+          href="/"
+          sx={{
+            flexGrow: 1,
+            "&:hover": { textDecoration: "underline", fontSize: "18px" },
+          }}
+          color="inherit"
+          underline="none"
+        >
+          Expenses
+        </Link>
+        <Button color="inherit">Login</Button>
+        {/* <Avatar alt="user" src="./images/user.png" /> */}
+        <Avatar
+          alt="Travis Howard"
+          src="https://mui.com/static/images/avatar/2.jpg"
+        />
+      </Toolbar>
+    </AppBar>
   );
 }
