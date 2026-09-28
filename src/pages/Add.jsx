@@ -6,9 +6,9 @@ import { Scale } from "@mui/icons-material";
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(indigo[500]),
   // @ts-ignore
-  backgroundColor: theme.palette.myColor.main,
+  backgroundColor: theme.palette.malak.main,
   '&:hover': {
-    backgroundColor: theme.palette.myColor.light,
+    backgroundColor: theme.palette.malak.main,
     scale:"0.9"
   },
 }));
