@@ -17,6 +17,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { useLocation, useNavigate } from "react-router";
 import { Brightness7, Brightness4 } from "@mui/icons-material";
 
+// @ts-ignore
 export default function Drawerr({ drawerWidth, setModeState ,dispaly,typeDrawerr,hideDrower}) {
   const theme = useTheme();
   let location = useLocation();
@@ -96,6 +97,7 @@ export default function Drawerr({ drawerWidth, setModeState ,dispaly,typeDrawerr
       sx={{
         bgcolor:
           location.pathname === item.path
+            // @ts-ignore
             ? theme.palette.malak.main
             : null,
       }}
