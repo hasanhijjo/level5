@@ -2,13 +2,13 @@
   "myData": [
     {
       "title": "car",
-      "price": 5000,
-      "id": "kM3kmhwb9UE"
+      "price": 200,
+      "id": "HbNXzDQCZEU"
     },
     {
-      "title": "clothes",
+      "title": "food",
       "price": 20,
-      "id": "Ffnkq_52Mp0"
+      "id": "5SH5-pwVW44"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

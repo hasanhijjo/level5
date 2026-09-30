@@ -4,7 +4,7 @@ import Drawerr from "../component/Drawerr";
 import { Outlet } from "react-router";
 import { useState } from "react";
 import { useMemo } from "react";
-import getDesignTokens from "../styels/Theme"
+import getDesignTokens from "../styels/Theme";
 import React from "react";
 
 const drawerWidth = 240;
@@ -26,8 +26,9 @@ export default function Root() {
     settypeDrawerr("permanent");
     setdispaly("none");
   };
-  const theme = React.useMemo (()=>
-    createTheme(getDesignTokens(ModeState)),[ModeState]
+  const theme = React.useMemo(
+    () => createTheme(getDesignTokens(ModeState)),
+    [ModeState],
   );
   return (
     <ThemeProvider theme={theme}>
@@ -35,11 +36,7 @@ export default function Root() {
       <div>
         <Appbar drawerWidth={drawerWidth} showDrower={showDrower} />
         <Drawerr
-          drawerWidth={drawerWidth}
-          setModeState={setModeState}
-          dispaly={dispaly}
-          typeDrawerr={typeDrawerr}
-          hideDrower={hideDrower}
+          {...{ drawerWidth, setModeState, dispaly, typeDrawerr, hideDrower }}
         />
         <Box
           sx={{

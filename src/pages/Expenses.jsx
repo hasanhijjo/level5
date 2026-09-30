@@ -5,14 +5,23 @@ import { useState } from "react";
 
 const Expenses = () => {
   const [myData, setMyData] = useState([]);
+  let ammount = 0;
+  const handelDelete = (item) => {
+                fetch(`http://localhost:3000/myData/${item.id}`, {
+                  method: "DELETE",
+                }).then(() => {
+                  setMyData(myData.filter((expense) => expense.id !== item.id));
+                });
+              };
   useEffect(() => {
     fetch("http://localhost:3000/myData")
       .then((response) => response.json())
       .then((data) => setMyData(data));
-  }, [myData]);
+  }, []);
   return (
     <Box>
       {myData.map((item) => {
+        ammount += item.price;
         return (
           <Paper
             key={item.id}
@@ -47,9 +56,7 @@ const Expenses = () => {
             <IconButton
               sx={{ position: "absolute", top: "0", right: "0" }}
               onClick={() => {
-                fetch(`http://localhost:3000/myData/${item.id}`, {
-                  method: "DELETE",
-                });
+                handelDelete(item)
               }}
             >
               <CancelIcon />
@@ -57,6 +64,13 @@ const Expenses = () => {
           </Paper>
         );
       })}
+      <Typography
+        variant="body1"
+        color="initial"
+        sx={{ mt: "30px", width: "100%", textAlign: "center" }}
+      >
+        All You Spend {ammount}$
+      </Typography>
     </Box>
   );
 };

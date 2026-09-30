@@ -1,6 +1,7 @@
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import {
+  Box,
   IconButton,
   List,
   ListItem,
@@ -51,7 +52,8 @@ export default function Drawerr({ drawerWidth, setModeState ,dispaly,typeDrawerr
   },
 ];
   return (
-    <Drawer
+    <Box component="nav">
+    <Drawer 
       sx={{
         display:{xs:dispaly ,sm:"block"},
         width: `${drawerWidth}px`,
@@ -112,6 +114,6 @@ export default function Drawerr({ drawerWidth, setModeState ,dispaly,typeDrawerr
     </ListItem>
   ))}
 </List>
-    </Drawer>
+    </Drawer></Box>
   );
 }
